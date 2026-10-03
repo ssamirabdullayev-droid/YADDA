@@ -5,36 +5,36 @@
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="theme-color" content="#111">
-<title>YADDA</title>
+<title>YADDA — AI Memory</title>
 <style>
 *{box-sizing:border-box}body{margin:0;background:#f6f6f7;color:#111;font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display",Arial,sans-serif}
 .app{max-width:480px;margin:auto;min-height:100vh;padding:22px 18px 110px}.top{display:flex;justify-content:space-between;align-items:center;margin:6px 0 20px}.logo{font-size:31px;font-weight:800;letter-spacing:-1.2px}.sub{color:#777;font-size:13px}.gear{border:0;background:#fff;border-radius:50%;width:44px;height:44px;font-size:19px;box-shadow:0 3px 15px #0001}
 .hero{background:#111;color:#fff;border-radius:25px;padding:22px 18px 18px;box-shadow:0 12px 30px #0002}.hero h1{font-size:22px;margin:0 0 8px}.hero p{margin:0 0 16px;color:#c9c9c9;line-height:1.35}.box{display:flex;background:#fff;border-radius:17px;padding:7px}.box textarea{flex:1;border:0;outline:0;resize:none;font:16px Arial;padding:10px;min-height:48px}.save{border:0;border-radius:13px;background:#111;color:#fff;padding:0 13px;font-weight:700}
-.section{font-size:18px;font-weight:750;margin:24px 2px 12px}.memory{background:#fff;border-radius:18px;padding:16px;margin:10px 0;box-shadow:0 2px 12px #0000000b}.tag{display:inline-block;background:#eeeef1;border-radius:20px;padding:5px 10px;font-size:12px;color:#555;margin-bottom:9px}.memory p{margin:0;font-size:15px;line-height:1.4}.time{font-size:11px;color:#999;margin-top:9px}
-.chat{background:#fff;border-radius:20px;padding:14px;margin-top:16px;box-shadow:0 2px 12px #0000000b}.chat-title{font-weight:750;margin-bottom:10px}.messages{max-height:310px;overflow:auto}.msg{padding:10px 12px;border-radius:14px;margin:7px 0;font-size:14px;line-height:1.4}.user{background:#111;color:#fff;margin-left:35px}.bot{background:#f0f0f2;margin-right:25px}.chatbox{display:flex;gap:7px;margin-top:10px}.chatbox input{flex:1;border:1px solid #ddd;border-radius:13px;padding:11px;outline:0;font-size:14px}.send{border:0;background:#111;color:#fff;border-radius:13px;padding:0 15px;font-weight:700}
-.navwrap{position:fixed;bottom:0;left:0;right:0;background:#fffffff0;backdrop-filter:blur(16px);border-top:1px solid #ddd}.nav{max-width:480px;margin:auto;display:flex;justify-content:space-around;padding:9px 10px calc(9px + env(safe-area-inset-bottom))}.nav button{border:0;background:none;color:#777;font-size:12px}.nav b{display:block;font-size:21px;margin-bottom:2px}.active{color:#111!important}.empty{color:#999;text-align:center;padding:20px}
-.toast{position:fixed;left:20px;right:20px;bottom:88px;background:#111;color:#fff;text-align:center;padding:13px;border-radius:14px;display:none}
+.quick{display:flex;gap:8px;overflow:auto;margin-top:12px}.chip{border:1px solid #333;background:#191919;color:#ddd;border-radius:18px;padding:7px 10px;font-size:12px;white-space:nowrap}
+.chat{background:#fff;border-radius:20px;padding:14px;margin-top:16px;box-shadow:0 2px 12px #0000000b}.chat-title{font-weight:750;margin-bottom:10px}.messages{max-height:360px;overflow:auto}.msg{padding:10px 12px;border-radius:14px;margin:7px 0;font-size:14px;line-height:1.45;white-space:pre-line}.user{background:#111;color:#fff;margin-left:35px}.bot{background:#f0f0f2;margin-right:25px}.chatbox{display:flex;gap:7px;margin-top:10px}.chatbox input{flex:1;border:1px solid #ddd;border-radius:13px;padding:11px;outline:0;font-size:14px}.send{border:0;background:#111;color:#fff;border-radius:13px;padding:0 15px;font-weight:700}
+.section{font-size:18px;font-weight:750;margin:24px 2px 12px}.memory{background:#fff;border-radius:18px;padding:16px;margin:10px 0;box-shadow:0 2px 12px #0000000b}.tag{display:inline-block;background:#eeeef1;border-radius:20px;padding:5px 10px;font-size:12px;color:#555;margin-bottom:9px}.memory p{margin:0;font-size:15px;line-height:1.4}.time{font-size:11px;color:#999;margin-top:9px}.empty{color:#999;text-align:center;padding:20px}
+.navwrap{position:fixed;bottom:0;left:0;right:0;background:#fffffff0;backdrop-filter:blur(16px);border-top:1px solid #ddd}.nav{max-width:480px;margin:auto;display:flex;justify-content:space-around;padding:9px 10px calc(9px + env(safe-area-inset-bottom))}.nav button{border:0;background:none;color:#777;font-size:12px}.nav b{display:block;font-size:21px;margin-bottom:2px}.active{color:#111!important}.toast{position:fixed;left:20px;right:20px;bottom:88px;background:#111;color:#fff;text-align:center;padding:13px;border-radius:14px;display:none}
 </style>
 </head>
 <body>
 <div class="app">
-<div class="top"><div><div class="logo">YADDA</div><div class="sub">Sənin şəxsi AI yaddaşın</div></div><button class="gear" onclick="alert('YADDA: yaddaşlar bu cihazın brauzerində saxlanılır.')">⚙️</button></div>
+<div class="top"><div><div class="logo">YADDA</div><div class="sub">Sənin şəxsi AI yaddaşın</div></div><button class="gear" onclick="alert('YADDA yaddaşları bu cihazın brauzerində saxlayır.')">⚙️</button></div>
 
 <div class="hero">
-<h1>Nəyi yadda saxlayım?</h1>
-<p>Yaz, YADDA yaddaşını təşkil etsin.</p>
+<h1>Bu gün nəyi yadda saxlayım?</h1>
+<p>Yaz, YADDA yaddaşını təşkil et və sonra onunla danış.</p>
 <div class="box"><textarea id="note" placeholder="Məs: Sabah saat 10-da banka zəng etməliyəm"></textarea><button class="save" onclick="save()">Yadda saxla</button></div>
+<div class="quick">
+<button class="chip" onclick="fill('Sabah saat 10-da banka zəng etməliyəm')">⏰ Xatırlatma</button>
+<button class="chip" onclick="fill('Yeni startup ideyam var')">💡 İdeya</button>
+<button class="chip" onclick="fill('Gələn həftə Bakıya getmək planım var')">📅 Plan</button>
+</div>
 </div>
 
 <div class="chat">
-<div class="chat-title">🧠 YADDA köməkçisi</div>
-<div id="messages" class="messages">
-<div class="msg bot">Salam! Yaddaşların haqqında mənə sual ver. Məsələn: “Sabah nə etməliyəm?”</div>
-</div>
-<div class="chatbox">
-<input id="question" placeholder="Məs: Sabah nə etməliyəm?" onkeydown="if(event.key==='Enter')ask()">
-<button class="send" onclick="ask()">Göndər</button>
-</div>
+<div class="chat-title">🧠 YADDA AI köməkçisi</div>
+<div id="messages" class="messages"><div class="msg bot">Salam! Yaddaşlarınla bağlı sual verə bilərsən.\n\nMəsələn:\n• Sabah nə etməliyəm?\n• Hansı ideyalarımı yadda saxlamışam?\n• Planlarım nələrdir?\n• Banka nə vaxt zəng etməliyəm?</div></div>
+<div class="chatbox"><input id="question" placeholder="YADDA-ya sual ver..." onkeydown="if(event.key==='Enter')ask()"><button class="send" onclick="ask()">Göndər</button></div>
 </div>
 
 <div class="section">Son yaddaşlar</div>
@@ -51,23 +51,58 @@
 
 <script>
 function esc(s){return s.replace(/[&<>\"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','\"':'&quot;',"'":'&#039;'}[m]))}
-function cat(t){let x=t.toLowerCase();if(/sabah|saat|zəng|zeng|xatırlat|xatirlat|görüş|gorus|sonra/.test(x))return'Xatırlatma';if(/ideya|fikir|layihə|layihe|startup|biznes/.test(x))return'İdeya';if(/plan|getmək|getmek|etməli|etmeli|hazırla|hazirla|səfər|sefer/.test(x))return'Plan';return'Qeyd'}
 function memories(){return JSON.parse(localStorage.getItem('yadda')||'[]')}
-function render(){let a=memories(),l=document.getElementById('list');if(!a.length){l.innerHTML='<div class="empty">Hələ yaddaş yoxdur.</div>';return}l.innerHTML=a.map(x=>`<div class="memory"><span class="tag">${esc(x.cat)}</span><p>${esc(x.text)}</p><div class="time">${esc(x.time)}</div></div>`).join('')}
-function save(){let e=document.getElementById('note'),t=e.value.trim();if(!t)return;let a=memories();a.unshift({text:t,cat:cat(t),time:'İndi'});localStorage.setItem('yadda',JSON.stringify(a));e.value='';render();let q=document.getElementById('toast');q.style.display='block';setTimeout(()=>q.style.display='none',1400)}
-function addMsg(text,type){let m=document.getElementById('messages');let d=document.createElement('div');d.className='msg '+type;d.textContent=text;m.appendChild(d);m.scrollTop=m.scrollHeight}
-function answer(q){
-let a=memories(),x=q.toLowerCase();
-if(!a.length)return'Yaddaşında hələ məlumat yoxdur. Əvvəlcə bir neçə məlumat yadda saxla.';
-let found;
-if(/sabah|nə etməli|ne etmeli|tapşır|tapsiriq/.test(x)) found=a.filter(m=>m.cat.includes('Xatırlatma')||/etməli|etmeli|saat|zəng|zeng/.test(m.text.toLowerCase()));
-else if(/ideya|fikir|biznes|startup|layihə|layihe/.test(x)) found=a.filter(m=>m.cat.includes('İdeya'));
-else if(/plan|səfər|sefer|getmək|getmek|hara/.test(x)) found=a.filter(m=>m.cat.includes('Plan'));
-else found=a.filter(m=>m.text.toLowerCase().includes(x));
-if(!found.length)return'Bu sualla bağlı yaddaşımda məlumat tapmadım.';
-return'Mənim yaddaşımda bunlar var:\\n\\n'+found.slice(0,5).map(m=>'• '+m.text).join('\\n');
+function category(t){
+ const x=t.toLowerCase();
+ if(/sabah|bu gün|bugün|gələn həftə|gələn ay|saat|zəng|zeng|xatırlat|xatirlat|görüş|gorus|sonra/.test(x))return'Xatırlatma';
+ if(/ideya|fikir|layihə|layihe|startup|biznes/.test(x))return'İdeya';
+ if(/plan|getmək|getmek|etməli|etmeli|hazırla|hazirla|səfər|sefer|gedəcəyəm|gedecəyəm/.test(x))return'Plan';
+ return'Qeyd';
 }
-function ask(){let e=document.getElementById('question'),q=e.value.trim();if(!q)return;addMsg(q,'user');e.value='';setTimeout(()=>addMsg(answer(q),'bot'),250)}
+function render(){
+ const a=memories(),l=document.getElementById('list');
+ if(!a.length){l.innerHTML='<div class="empty">Hələ yaddaş yoxdur.</div>';return}
+ l.innerHTML=a.slice(0,12).map(x=>`<div class="memory"><span class="tag">${esc(x.cat)}</span><p>${esc(x.text)}</p><div class="time">${esc(x.time)}</div></div>`).join('');
+}
+function save(){
+ const e=document.getElementById('note'),t=e.value.trim();if(!t){e.focus();return}
+ const a=memories();a.unshift({text:t,cat:category(t),time:'İndi'});localStorage.setItem('yadda',JSON.stringify(a));e.value='';render();
+ const q=document.getElementById('toast');q.style.display='block';setTimeout(()=>q.style.display='none',1400);
+}
+function fill(t){document.getElementById('note').value=t;document.getElementById('note').focus()}
+function addMsg(text,type){const m=document.getElementById('messages'),d=document.createElement('div');d.className='msg '+type;d.textContent=text;m.appendChild(d);m.scrollTop=m.scrollHeight}
+function scoreMemory(m,words){
+ const text=(m.text+' '+m.cat).toLowerCase();let score=0;
+ words.forEach(w=>{if(w.length>2&&text.includes(w))score+=2});
+ if(m.cat==='Xatırlatma'&&words.some(w=>['sabah','etməliyəm','etmeli','nə','ne','zəng','zeng','vaxt'].includes(w)))score++;
+ return score;
+}
+function answer(q){
+ const a=memories(),x=q.toLowerCase();
+ if(!a.length)return'Yaddaşında hələ məlumat yoxdur. Əvvəlcə bir neçə məlumat yadda saxla.';
+ let found=[];
+ if(/sabah|bu gün|bugün|nə etməli|ne etmeli|tapşır|tapsiriq|görüş|gorus|zəng|zeng|vaxt/.test(x)){
+   found=a.filter(m=>m.cat==='Xatırlatma'||/sabah|bu gün|bugün|saat|etməli|etmeli|zəng|zeng|görüş|gorus/.test(m.text.toLowerCase()));
+ }else if(/ideya|fikir|biznes|startup|layihə|layihe/.test(x)){
+   found=a.filter(m=>m.cat==='İdeya');
+ }else if(/plan|səfər|sefer|getmək|getmek|hara|gələn həftə/.test(x)){
+   found=a.filter(m=>m.cat==='Plan'||/plan|səfər|sefer|getmək|getmek/.test(m.text.toLowerCase()));
+ }else{
+   const words=x.replace(/[?!.,]/g,' ').split(/\s+/).filter(Boolean);
+   found=a.map(m=>({m,s:scoreMemory(m,words)})).filter(o=>o.s>0).sort((p,r)=>r.s-p.s).map(o=>o.m);
+ }
+ if(!found.length)return'Bu sualla bağlı yaddaşımda məlumat tapa bilmədim.';
+ let intro='Yaddaşından tapdığım məlumatlar:';
+ if(/sabah|bu gün|bugün/.test(x))intro='Yaddaşına əsasən, yaxın zamanda bunlar var:';
+ if(/ideya|fikir|biznes|startup|layihə|layihe/.test(x))intro='Saxladığın ideyalar bunlardır:';
+ if(/plan|səfər|sefer/.test(x))intro='Saxladığın planlardan bunları tapdım:';
+ return intro+'\n\n'+found.slice(0,6).map((m,i)=>(i+1)+'. '+m.text).join('\n');
+}
+function ask(){
+ const e=document.getElementById('question'),q=e.value.trim();if(!q)return;
+ addMsg(q,'user');e.value='';
+ setTimeout(()=>addMsg(answer(q),'bot'),180);
+}
 render();
 </script>
 </body>
