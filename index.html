@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="az">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<title>YADDA</title>
+<style>
+*{box-sizing:border-box}body{margin:0;background:#f7f7f8;color:#111;font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display",Arial,sans-serif}
+.app{max-width:480px;margin:auto;min-height:100vh;padding:25px 18px 105px}.top{display:flex;justify-content:space-between;align-items:center;margin:6px 0 22px}.logo{font-size:31px;font-weight:800;letter-spacing:-1.2px}.sub{color:#777;font-size:13px;margin-top:2px}.gear{border:0;background:white;border-radius:50%;width:44px;height:44px;font-size:20px;box-shadow:0 3px 15px #0001}
+.hero{background:#111;color:#fff;border-radius:25px;padding:23px 18px 18px;box-shadow:0 12px 30px #0002}.hero h1{font-size:23px;margin:0 0 8px}.hero p{margin:0 0 17px;color:#c9c9c9;line-height:1.35}.box{display:flex;background:#fff;border-radius:17px;padding:7px}.box textarea{flex:1;border:0;outline:0;resize:none;font:16px -apple-system,BlinkMacSystemFont,Arial;padding:10px;min-height:48px}.save{border:0;border-radius:13px;background:#111;color:#fff;padding:0 14px;font-weight:700}
+.section{font-size:18px;font-weight:750;margin:24px 2px 12px}.memory{background:#fff;border-radius:18px;padding:16px;margin:10px 0;box-shadow:0 2px 12px #0000000b}.tag{display:inline-block;background:#eeeef1;border-radius:20px;padding:5px 10px;font-size:12px;color:#555;margin-bottom:9px}.memory p{margin:0;font-size:15px;line-height:1.4}.time{font-size:11px;color:#999;margin-top:9px}.empty{color:#999;text-align:center;padding:20px}
+.navwrap{position:fixed;bottom:0;left:0;right:0;background:#fffffff0;backdrop-filter:blur(16px);border-top:1px solid #ddd}.nav{max-width:480px;margin:auto;display:flex;justify-content:space-around;padding:9px 10px calc(9px + env(safe-area-inset-bottom))}.nav button{border:0;background:none;color:#777;font-size:12px}.nav b{display:block;font-size:21px;margin-bottom:2px}.active{color:#111!important}
+.toast{position:fixed;left:20px;right:20px;bottom:88px;background:#111;color:white;text-align:center;padding:13px;border-radius:14px;display:none}
+</style>
+</head>
+<body>
+<div class="app">
+<div class="top"><div><div class="logo">YADDA</div><div class="sub">Sənin şəxsi AI yaddaşın</div></div><button class="gear" onclick="alert('YADDA • Məxfilik və profil bölməsi')">⚙️</button></div>
+<div class="hero">
+<h1>Bu gün nəyi yadda saxlayım?</h1>
+<p>Sadəcə yaz. YADDA məlumatı avtomatik kateqoriyaya ayıracaq.</p>
+<div class="box"><textarea id="note" placeholder="Məs: Sabah saat 10-da banka zəng etməliyəm"></textarea><button class="save" onclick="save()">Yadda saxla</button></div>
+</div>
+<div class="section">Son yaddaşlar</div>
+<div id="list"></div>
+</div>
+<div class="navwrap"><div class="nav"><button class="active"><b>⌂</b>Ana səhifə</button><button onclick="document.getElementById('note').focus()"><b>＋</b>Əlavə et</button><button onclick="searchMemories()"><b>⌕</b>Axtar</button></div></div>
+<div id="toast" class="toast">Yadda saxlanıldı ✓</div>
+<script>
+function category(t){let x=t.toLowerCase();if(/sabah|saat|zəng|zeng|xatırlat|xatirlat|görüş|gorus|sonra/.test(x))return'Xatırlatma';if(/ideya|fikr|layihə|layihe|startup|biznes/.test(x))return'İdeya';if(/plan|getmək|getmek|etməli|etmeli|hazırla|hazirla/.test(x))return'Plan';return'Qeyd'}
+function render(){let a=JSON.parse(localStorage.getItem('yadda')||'[]');let l=document.getElementById('list');if(!a.length){l.innerHTML='<div class="empty">Hələ yaddaş yoxdur.</div>';return}l.innerHTML=a.map(x=>`<div class="memory"><span class="tag">${x.cat}</span><p>${esc(x.text)}</p><div class="time">${x.time}</div></div>`).join('')}
+function esc(s){return s.replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'}[m]))}
+function save(){let e=document.getElementById('note'),t=e.value.trim();if(!t){e.focus();return}let a=JSON.parse(localStorage.getItem('yadda')||'[]');a.unshift({text:t,cat:category(t),time:'İndi'});localStorage.setItem('yadda',JSON.stringify(a));e.value='';render();let q=document.getElementById('toast');q.style.display='block';setTimeout(()=>q.style.display='none',1500)}
+function searchMemories(){let q=prompt('Nə axtarırsan?');if(!q)return;let a=JSON.parse(localStorage.getItem('yadda')||'[]').filter(x=>x.text.toLowerCase().includes(q.toLowerCase())||x.cat.toLowerCase().includes(q.toLowerCase()));document.getElementById('list').innerHTML=a.length?a.map(x=>`<div class="memory"><span class="tag">${x.cat}</span><p>${esc(x.text)}</p><div class="time">${x.time}</div></div>`).join(''):'<div class="empty">Heç nə tapılmadı.</div>'}
+render();
+</script>
+</body></html>
